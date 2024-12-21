@@ -1,0 +1,79 @@
+<h1>Participant à ajouter</h1>
+<div style="display: flex; flex-direction: column;">
+    <label for="titre">id</label>
+    <input 
+        type="text" 
+        id="id" 
+        name="id" 
+        style="flex: 1; max-width: 300px;">
+</div>
+<div style="display: flex; flex-direction: column;">
+    <label for="titre">name</label>
+    <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        ngModel 
+            #titre="ngModel" 
+            [required]="true" 
+            style="flex: 1; max-width: 300px;">
+        
+        <div *ngIf="titre.invalid && titre.touched" style="color: red; font-size: 12px;">
+            name est obligatoire.
+        </div>>
+</div>
+<div style="display: flex; flex-direction: column;">
+    <label for="titre">projectName</label>
+    <input 
+        type="text" 
+        id="projectName" 
+        name="projectName" 
+        ngModel 
+        #titre="ngModel" 
+        [required]="true" 
+        style="flex: 1; max-width: 300px;">
+    <!-- Message d'erreur pour Titre -->
+    <div *ngIf="titre.invalid && titre.touched" style="color: red; font-size: 12px;">
+        projectName est obligatoire.
+    </div>>
+</div>
+<div style="display: flex; flex-direction: column;">
+    <label for="titre">level</label>
+    <input 
+        type="text" 
+        id="level" 
+        name="level" 
+        ngModel 
+        #titre="ngModel" 
+        [required]="true" 
+        style="flex: 1; max-width: 300px;">
+    <!-- Message d'erreur pour Titre -->
+    <div *ngIf="titre.invalid && titre.touched" style="color: red; font-size: 12px;">
+        level est obligatoire.
+    </div>>
+</div>
+<div style="display: flex; flex-direction: column;">
+    <label for="titre">participants</label>
+    <input 
+        type="text" 
+        id="participants" 
+        name="participants" 
+        style="flex: 1; max-width: 300px;">
+</div>
+<div style="display: flex; flex-direction: column;">
+    <label for="titre">projectDescription</label>
+    <input 
+        type="text" 
+        id="projectDescription" 
+        name="projectDescription" 
+        style="flex: 1; max-width: 300px;"
+        #projectDescription="ngIf">
+        <div *ngIf="projectDescription.invalid && projectDescription.touched" style="color: red; font-size: 12px;">
+            <span *ngIf="projectDescription.errors?.['minlength']">La description doit contenir au moins 5 caractères.</span>
+        </div>
+</div>
+<button 
+        type="submit" 
+        
+        style="align-self: flex-start;">Ajouter</button>
+
