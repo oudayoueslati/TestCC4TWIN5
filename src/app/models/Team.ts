@@ -3,7 +3,7 @@ export class Team{
     name! : string;
     projectName!:string ;
     level!:string ;
-    //participants !:Participant[] ;
+   // participants !:Participant[] ;
     projectDescription! :string ;
     }
         

@@ -6,6 +6,7 @@ import { TeamsComponent } from '../../components/teams/teams.component';
 import { TeamComponent } from '../../components/team/team.component';
 import { FormTeamComponent } from '../../components/form-team/form-team.component';
 import { MyTeamsComponent } from '../../components/my-teams/my-teams.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MyTeamsComponent } from '../../components/my-teams/my-teams.component';
   ],
   imports: [
     CommonModule,
-    TeamRoutingModule
+    TeamRoutingModule,
+    FormsModule
   ]
 })
 export class TeamModule { }

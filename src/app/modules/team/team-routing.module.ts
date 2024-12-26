@@ -6,18 +6,14 @@ import { MyTeamsComponent } from 'src/app/components/my-teams/my-teams.component
 import { TeamsComponent } from 'src/app/components/teams/teams.component';
 
 const routes: Routes = [
-  {path : '', component :FormTeamComponent},
-  {path : 'add', component :TeamsComponent},
-  {path : 'my', component :MyTeamsComponent}
-
+  { path: '', component: FormTeamComponent },
+  { path: 'add', component: TeamsComponent },
+  { path: 'show', component: TeamsComponent },
+  { path: 'my', component: MyTeamsComponent }  
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule,
-    FormsModule
-  ]
+  exports: [RouterModule, FormsModule]
 })
 export class TeamRoutingModule { }
-
-

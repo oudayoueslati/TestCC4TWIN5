@@ -1,77 +1,87 @@
 <h1>Participant à ajouter</h1>
-<div style="display: flex; flex-direction: column;">
-    <label for="titre">id</label>
-    <input 
-        type="text" 
-        id="id" 
-        name="id" 
-        style="flex: 1; max-width: 300px;">
-</div>
-<div style="display: flex; flex-direction: column;">
-    <label for="titre">name</label>
-    <input 
-        type="text" 
-        id="name" 
-        name="name" 
-        ngModel 
-            #titre="ngModel" 
-            [required]="true" 
+<form #teamForm="ngForm">
+    <div style="display: flex; flex-direction: column;">
+        <label for="id">id</label>
+        <input 
+            type="text" 
+            id="id" 
+            name="id" 
+            ngModel
             style="flex: 1; max-width: 300px;">
-        
-        <div *ngIf="titre.invalid && titre.touched" style="color: red; font-size: 12px;">
-            name est obligatoire.
-        </div>>
-</div>
-<div style="display: flex; flex-direction: column;">
-    <label for="titre">projectName</label>
-    <input 
-        type="text" 
-        id="projectName" 
-        name="projectName" 
-        ngModel 
-        #titre="ngModel" 
-        [required]="true" 
-        style="flex: 1; max-width: 300px;">
-    <!-- Message d'erreur pour Titre -->
-    <div *ngIf="titre.invalid && titre.touched" style="color: red; font-size: 12px;">
-        projectName est obligatoire.
-    </div>>
-</div>
-<div style="display: flex; flex-direction: column;">
-    <label for="titre">level</label>
-    <input 
-        type="text" 
-        id="level" 
-        name="level" 
-        ngModel 
-        #titre="ngModel" 
-        [required]="true" 
-        style="flex: 1; max-width: 300px;">
-    <!-- Message d'erreur pour Titre -->
-    <div *ngIf="titre.invalid && titre.touched" style="color: red; font-size: 12px;">
-        level est obligatoire.
-    </div>>
-</div>
-<div style="display: flex; flex-direction: column;">
-    <label for="titre">participants</label>
-    <input 
-        type="text" 
-        id="participants" 
-        name="participants" 
-        style="flex: 1; max-width: 300px;">
-</div>
-<div style="display: flex; flex-direction: column;">
-    <label for="titre">projectDescription</label>
-    <input 
-        type="text" 
-        id="projectDescription" 
-        name="projectDescription" 
-        style="flex: 1; max-width: 300px;"
-       >
-       
-</div>
-<button 
+    </div>
+    <div style="display: flex; flex-direction: column;">
+        <label for="name">name</label>
+        <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            ngModel 
+            #name="ngModel" 
+            required
+            pattern="[a-zA-Z0-9]*"
+            style="flex: 1; max-width: 300px;">
+        <div *ngIf="name.invalid && name.touched" style="color: red; font-size: 12px;">
+            <div *ngIf="name.errors?.['required']">name est obligatoire.</div>
+            <div *ngIf="name.errors?.['pattern']">name ne doit contenir que des lettres ou des chiffres.</div>
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+        <label for="projectName">projectName</label>
+        <input 
+            type="text" 
+            id="projectName" 
+            name="projectName" 
+            ngModel 
+            #projectName="ngModel" 
+            required
+            pattern="[a-zA-Z0-9]*"
+            style="flex: 1; max-width: 300px;">
+        <div *ngIf="projectName.invalid && projectName.touched" style="color: red; font-size: 12px;">
+            <div *ngIf="projectName.errors?.['required']">projectName est obligatoire.</div>
+            <div *ngIf="projectName.errors?.['pattern']">projectName ne doit contenir que des lettres ou des chiffres.</div>
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+        <label for="level">level</label>
+        <input 
+            type="text" 
+            id="level" 
+            name="level" 
+            ngModel 
+            #level="ngModel" 
+            required
+            pattern="[a-zA-Z0-9]*"
+            style="flex: 1; max-width: 300px;">
+        <div *ngIf="level.invalid && level.touched" style="color: red; font-size: 12px;">
+            <div *ngIf="level.errors?.['required']">level est obligatoire.</div>
+            <div *ngIf="level.errors?.['pattern']">level ne doit contenir que des lettres ou des chiffres.</div>
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+        <label for="participants">participants</label>
+        <input 
+            type="text" 
+            id="participants" 
+            name="participants" 
+            ngModel
+            style="flex: 1; max-width: 300px;">
+    </div>
+    <div style="display: flex; flex-direction: column;">
+        <label for="projectDescription">projectDescription</label>
+        <input 
+            type="text" 
+            id="projectDescription" 
+            name="projectDescription" 
+            ngModel
+            #projectDescription="ngModel"
+            minlength="5"
+            style="flex: 1; max-width: 300px;">
+        <div *ngIf="projectDescription.invalid && projectDescription.touched" style="color: red; font-size: 12px;">
+            <div *ngIf="projectDescription.errors?.['minlength']">projectDescription doit contenir au moins 5 caractères.</div>
+        </div>
+    </div>
+    <button 
         type="submit" 
-        
+        [disabled]="teamForm.invalid"
         style="align-self: flex-start;">Ajouter</button>
-
+</form>

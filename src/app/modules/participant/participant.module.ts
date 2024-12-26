@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ParticipantRoutingModule } from './participant-routing.module';
 import { ParticipantsComponent } from '../../components/participants/participants.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ParticipantsComponent } from '../../components/participants/participant
   ],
   imports: [
     CommonModule,
-    ParticipantRoutingModule
+    ParticipantRoutingModule,
+    FormsModule
   ]
 })
 export class ParticipantModule { }
